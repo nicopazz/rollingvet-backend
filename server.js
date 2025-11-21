@@ -4,6 +4,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import { conectarDB } from './config/db.js';
 import pacienteRouter from './routes/pacienteRoutes.js';
+import turnoRouter from './routes/turnoRoutes.js';
 
 // Configuro variables de entorno
 dotenv.config();
@@ -23,6 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Rutas
 app.use('/api', pacienteRouter);
+app.use('/api', turnoRouter);
 
 // Iniciar servidor backend
 app.listen(app.get('port'), () => {
