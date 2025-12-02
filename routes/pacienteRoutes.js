@@ -6,19 +6,18 @@ import {
     editarPaciente,
     borrarPaciente
 } from '../controllers/pacienteController.js';
+import validarJWT from '../middleware/validarJWT.js';
 
 const router = Router();
 
-// Definimos las rutas y qué función del controlador se ejecuta
-// URL base: /api/pacientes
 
 router.route('/pacientes')
-    .get(listarPacientes)
-    .post(crearPaciente);
+    .get(listarPacientes) 
+    .post([validarJWT], crearPaciente); 
 
 router.route('/pacientes/:id')
-    .get(obtenerPaciente)
-    .put(editarPaciente)
-    .delete(borrarPaciente);
+    .get(obtenerPaciente) 
+    .put([validarJWT], editarPaciente) 
+    .delete([validarJWT], borrarPaciente); 
 
 export default router;

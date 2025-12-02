@@ -6,16 +6,17 @@ import {
     editarTurno,
     borrarTurno
 } from '../controllers/turnoController.js';
+import validarJWT from '../middleware/validarJWT.js';
 
 const router = Router();
 
 router.route('/turnos')
     .get(listarTurnos)
-    .post(crearTurno);
+    .post([validarJWT],crearTurno);
 
 router.route('/turnos/:id')
     .get(obtenerTurno)
-    .put(editarTurno)
-    .delete(borrarTurno);
+    .put([validarJWT],editarTurno)
+    .delete([validarJWT],borrarTurno);
 
 export default router;

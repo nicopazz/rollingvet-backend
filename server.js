@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import { conectarDB } from './config/db.js';
 import pacienteRouter from './routes/pacienteRoutes.js';
 import turnoRouter from './routes/turnoRoutes.js';
+import usuarioRouter from './routes/usuarioRoutes.js';
 
 // Configuro variables de entorno
 dotenv.config();
@@ -25,6 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 // Rutas
 app.use('/api', pacienteRouter);
 app.use('/api', turnoRouter);
+app.use('/api/auth', usuarioRouter);
 
 // Iniciar servidor backend
 app.listen(app.get('port'), () => {
