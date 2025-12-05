@@ -7,6 +7,7 @@ import pacienteRouter from './routes/pacienteRoutes.js';
 import turnoRouter from './routes/turnoRoutes.js';
 import usuarioRouter from './routes/usuarioRoutes.js';
 import servicioRouter from './routes/servicioRoutes.js';
+import profesionalesRouter from './routes/profesionalesRoutes.js';
 
 // Configuro variables de entorno
 dotenv.config();
@@ -29,6 +30,7 @@ app.use('/api', pacienteRouter);
 app.use('/api', turnoRouter);
 app.use('/api/auth', usuarioRouter);
 app.use('/api', servicioRouter);
+app.use('/api', profesionalesRouter);
 
 
 // Iniciar servidor backend
