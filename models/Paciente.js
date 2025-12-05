@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const pacienteSchema = new mongoose.Schema({
-  // Información del Dueño
+  
   nombreDueño: {
     type: String,
     required: true,
@@ -23,7 +23,7 @@ const pacienteSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  // Información de la Mascota
+  
   nombreMascota: {
     type: String,
     required: true,
@@ -33,7 +33,7 @@ const pacienteSchema = new mongoose.Schema({
   especie: {
     type: String,
     required: true,
-    enum: ['Perro', 'Gato', 'Ave', 'Roedor', 'Otro'] // Lista cerrada de especies
+    enum: ['Perro', 'Gato', 'Ave', 'Roedor', 'Otro'] 
   },
   raza: {
     type: String,
