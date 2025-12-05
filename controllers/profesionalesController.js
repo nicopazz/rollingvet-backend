@@ -36,6 +36,14 @@ export const editarProfesional = async (req, res) => {
     }
 };
 
+export const obtenerProfesional = async (req, res) => {
+    try {
+        const profesional = await Profesional.findById(req.params.id);
+        res.status(200).json(profesional);
+    } catch (error) {
+        res.status(404).json({ mensaje: 'No se encontró el profesional' });
+    }
+};
 
 export const borrarProfesional = async (req, res) => {
     try {

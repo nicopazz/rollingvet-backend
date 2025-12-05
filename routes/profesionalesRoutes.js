@@ -2,7 +2,8 @@ import { Router } from 'express';
 import { 
     listarProfesionales,
     crearProfesional,
-    editarProfesional, 
+    editarProfesional,
+    obtenerProfesional, 
     borrarProfesional 
 } from '../controllers/profesionalesController.js';
 import validarJWT from '../middleware/validarJWT.js';
@@ -15,6 +16,7 @@ router.route('/profesionales')
     
 
 router.route('/profesionales/:id')
+    .get(obtenerProfesional)
     .put([validarJWT], editarProfesional)
     .delete([validarJWT], borrarProfesional);
 
