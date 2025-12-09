@@ -1,6 +1,6 @@
 import Servicio from '../models/Servicio.js';
 
-//Listar Servicios
+
 export const listarServicios = async (req, res) => {
     try {
         const servicios = await Servicio.find();
@@ -11,7 +11,7 @@ export const listarServicios = async (req, res) => {
     }
 };
 
-//Crear Servicio
+
 export const crearServicio = async (req, res) => {
     try {
         const servicioNuevo = new Servicio(req.body);
@@ -23,7 +23,7 @@ export const crearServicio = async (req, res) => {
     }
 };
 
-//Obtener un Servicio
+
 export const obtenerServicio = async (req, res) => {
     try {
         const servicio = await Servicio.findById(req.params.id);
@@ -34,7 +34,7 @@ export const obtenerServicio = async (req, res) => {
     }
 };
 
-//Editar Servicio
+
 export const editarServicio = async (req, res) => {
     try {
         await Servicio.findByIdAndUpdate(req.params.id, req.body);
@@ -45,7 +45,7 @@ export const editarServicio = async (req, res) => {
     }
 };
 
-//Borrar Servicio
+
 export const borrarServicio = async (req, res) => {
     try {
         await Servicio.findByIdAndDelete(req.params.id);

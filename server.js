@@ -7,15 +7,16 @@ import pacienteRouter from './routes/pacienteRoutes.js';
 import turnoRouter from './routes/turnoRoutes.js';
 import usuarioRouter from './routes/usuarioRoutes.js';
 import servicioRouter from './routes/servicioRoutes.js';
+import ProductoRouter from './routes/productoRoutes.js';
 import profesionalesRouter from './routes/profesionalesRoutes.js';
 
-// Configuro variables de entorno
+// variables de entorno
 dotenv.config();
 
-// Inicializo Express
+// Express
 const app = express();
 
-// Conexión a la Base de Datos
+// Conexión a la DB
 conectarDB();
 
 // Configuraciones
@@ -30,10 +31,11 @@ app.use('/api', pacienteRouter);
 app.use('/api', turnoRouter);
 app.use('/api/auth', usuarioRouter);
 app.use('/api', servicioRouter);
+app.use('/api', ProductoRouter);
 app.use('/api', profesionalesRouter);
 
 
-// Iniciar servidor backend
+// Iniciar sv backend
 app.listen(app.get('port'), () => {
     console.log(`Servidor corriendo en el puerto ${app.get('port')}`);
 });
