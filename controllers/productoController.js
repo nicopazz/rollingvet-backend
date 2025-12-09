@@ -37,7 +37,15 @@ export const obtenerProducto = async (req, res) => {
 
 export const editarProducto = async (req, res) => {
     try {
-        await editarProducto.findByIdAndUpdate(req.params.id, req.body);
+        
+        const productoActualizado = await Producto.findByIdAndUpdate(req.params.id, req.body, { 
+            new: true, 
+            runValidators: true
+        });
+        
+        if (!productoActualizado) {
+            return res.status(404).json({ mensaje: 'Producto no encontrado' });
+        }
         res.status(200).json({ mensaje: 'El producto fue editado correctamente' });
     } catch (error) {
         console.log(error);
