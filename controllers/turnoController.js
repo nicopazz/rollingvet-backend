@@ -1,6 +1,5 @@
 import Turno from '../models/Turno.js';
 
-// Crear un turno
 export const crearTurno = async (req, res) => {
     try {
         const turnoNuevo = new Turno(req.body);
@@ -12,10 +11,18 @@ export const crearTurno = async (req, res) => {
     }
 };
 
-// Obtener todos los turnos
+
 export const listarTurnos = async (req, res) => {
     try {
-        const turnos = await Turno.find();
+        const { email } = req.query; 
+        let filtro = {};
+
+        if (email) {
+           
+            filtro = { emailDueño: email }; 
+        }
+
+        const turnos = await Turno.find(filtro); 
         res.status(200).json(turnos);
     } catch (error) {
         console.log(error);
@@ -23,7 +30,7 @@ export const listarTurnos = async (req, res) => {
     }
 };
 
-// Obtener un turno por ID
+
 export const obtenerTurno = async (req, res) => {
     try {
         const turno = await Turno.findById(req.params.id);
@@ -34,7 +41,7 @@ export const obtenerTurno = async (req, res) => {
     }
 };
 
-// Editar un turno
+
 export const editarTurno = async (req, res) => {
     try {
         await Turno.findByIdAndUpdate(req.params.id, req.body);
@@ -45,7 +52,6 @@ export const editarTurno = async (req, res) => {
     }
 };
 
-// Borrar un turno
 export const borrarTurno = async (req, res) => {
     try {
         await Turno.findByIdAndDelete(req.params.id);
