@@ -11,11 +11,11 @@ import validarJWT from '../middleware/validarJWT.js';
 
 const router = Router();
 
-// Rutas Públicas
+
 router.post('/registro', crearUsuario);
 router.post('/login', loginUsuario);
 
-// Rutas Privadas 
+
 router.route('/usuarios')
     .get([validarJWT], listarUsuarios) 
     .post([validarJWT], crearUsuario); 
