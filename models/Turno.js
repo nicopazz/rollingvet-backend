@@ -5,7 +5,7 @@ const turnoSchema = new mongoose.Schema({
     type: String,
     required: true,
     minLength: 5,
-    maxLength: 200,
+    maxLength: 100,
   },
   veterinario: {
     type: String,
