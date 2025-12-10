@@ -18,10 +18,11 @@ export const listarTurnos = async (req, res) => {
         let filtro = {};
 
         if (email) {
-           
+            
             filtro = { emailDueño: email }; 
         }
 
+        
         const turnos = await Turno.find(filtro); 
         res.status(200).json(turnos);
     } catch (error) {

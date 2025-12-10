@@ -11,18 +11,18 @@ const usuarioSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    unique: true, // Importante: No permite emails repetidos
+    unique: true, 
     trim: true,
-    match: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/ // Valida que sea un email real
+    match: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/ 
   },
   password: {
     type: String,
     required: true,
-    minLength: 8 // Mínimo 8 caracteres por seguridad
+    minLength: 8 
   },
   role: {
     type: String,
-    enum: ['admin', 'usuario'], // Solo permite estos dos valores
+    enum: ['admin', 'usuario'], 
     default: 'usuario'
   }
 });
